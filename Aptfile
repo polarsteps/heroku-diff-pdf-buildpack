@@ -1,5 +1,6 @@
 libpoppler-glib-dev
 poppler-utils
 libwxgtk3.0-gtk3-dev
-python-wxtools
-python3-wxgtk4.0
+libgtk-3-dev
+build-essential
+checkinstall
