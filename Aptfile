@@ -2,4 +2,4 @@ libpoppler-glib-dev
 poppler-utils
 libwxgtk3.0-gtk3-dev
 python-wxtools
-python-wxgtk4.0
+python3-wxgtk4.0
