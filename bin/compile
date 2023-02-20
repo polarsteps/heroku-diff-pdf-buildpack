@@ -22,11 +22,11 @@ curl $DIFF_PDF_URL -L -s -o $DIFF_PDF_DOWNLOAD
 #fi
 
 echo "-----> Extracting diff pdf binaries from ${DIFF_PDF_DOWNLOAD} to ${DIFF_PDF_VENDOR}"
-tar -xf $DIFF_PDF_DOWNLOAD -C $DIFF_PDF_VENDOR
-#./bootstrap
-#./configure
-#make
-#make install
+tar -xf $DIFF_PDF_DOWNLOAD -C $DIFF_PDF_VENDOR/diff-pdf-0.5
+./bootstrap
+./configure
+make
+make install
 #
 #echo "-----> Exporting PATH and LIBRARY_PATH"
 #echo 'export PATH="$PATH:vendor/diff-pdf/diff-pdf-0.5/bin"
