@@ -13,7 +13,7 @@ DIFF_PDF_VENDOR=$BUILD_DIR/vendor/diff-pdf
 DIFF_PDF_PROFILE=$BUILD_DIR/.profile.d
 
 mkdir -p $CACHE_DIR
-mkdir -p $DIFF_PDF_VENDOR
+mkdir -p $DIFF_PDF_VENDOR/diff-pdf-0.5
 mkdir -p $DIFF_PDF_PROFILE
 
 #if ! [ -e $DIFF_PDF_DOWNLOAD ]; then
