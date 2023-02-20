@@ -22,12 +22,12 @@ if ! [ -e $DIFF_PDF_DOWNLOAD ]; then
 fi
 
 echo "-----> Extracting diff pdf binaries from ${DIFF_PDF_DOWNLOAD} to ${DIFF_PDF_VENDOR}"
-tar -xf $DIFF_PDF_DOWNLOAD -C $DIFF_PDF_VENDOR
-#./bootstrap
-#./configure
-#make
-#make install
-#
-#echo "-----> Exporting PATH and LIBRARY_PATH"
-#echo 'export PATH="$PATH:vendor/diff-pdf/bin"
-#export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:vendor/diff-pdf/lib"' >> $DIFF_PDF_PROFILE/diff-pdf.sh
+tar -xf $DIFF_PDF_DOWNLOAD -C $DIFF_PDF_VENDOR/diff-pdf-0.5
+./bootstrap
+./configure
+make
+make install
+
+echo "-----> Exporting PATH and LIBRARY_PATH"
+echo 'export PATH="$PATH:vendor/diff-pdf/diff-pdf-0.5/bin"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:vendor/diff-pdf/diff-pdf-0.5/lib"' >> $DIFF_PDF_PROFILE/diff-pdf.sh
