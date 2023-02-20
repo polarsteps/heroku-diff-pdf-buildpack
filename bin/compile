@@ -2,6 +2,7 @@
 
 # fail fast
 set -e
+apt-get update && apt install libpoppler-glib-dev poppler-utils libwxgtk3.0-gtk3-dev
 
 BUILD_DIR=$1
 CACHE_DIR=$2
