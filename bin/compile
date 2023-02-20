@@ -23,8 +23,8 @@ fi
 
 echo "-----> Extracting diff pdf binaries from ${DIFF_PDF_DOWNLOAD} to ${DIFF_PDF_VENDOR}"
 tar -xf $DIFF_PDF_DOWNLOAD -C $DIFF_PDF_VENDOR
-sh $DIFF_PDF_VENDOR/bootstrap
-sh $DIFF_PDF_VENDOR/configure
+./bootstrap
+./configure
 make
 make install
 
