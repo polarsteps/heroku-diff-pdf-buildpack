@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+echo 'diff-pdf-buildpack'
+exit 0
