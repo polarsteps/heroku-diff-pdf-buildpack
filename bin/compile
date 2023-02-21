@@ -2,33 +2,15 @@
 
 # fail fast
 set -e
-
 BUILD_DIR=$1
-CACHE_DIR=$2
-VENDOR_DIR=$BUILD_DIR/vendor
 
-DIFF_PDF_URL='https://github.com/vslavik/diff-pdf/releases/download/v0.5/diff-pdf-0.5.tar.gz'
-DIFF_PDF_DOWNLOAD=$CACHE_DIR/diff-pdf.tar.gz
-DIFF_PDF_VENDOR=$BUILD_DIR/vendor/diff-pdf
-DIFF_PDF_PROFILE=$BUILD_DIR/.profile.d
+mkdir -p "$BUILD_DIR/bin/"
+cp -a binaries/* "$BUILD_DIR/bin/"
 
-mkdir -p $CACHE_DIR
-mkdir -p $DIFF_PDF_VENDOR/diff-pdf-0.5
-mkdir -p $DIFF_PDF_PROFILE
+# Setting environment variables in .profile.d script (sourced at dyno startup)
+mkdir -p "$BUILD_DIR/.profile.d/"
+cat <<EOF >"$BUILD_DIR"/.profile.d/diff-pdf.sh
+export LD_LIBRARY_PATH="\$LD_LIBRARY_PATH:\$HOME/bin"
+EOF
 
-#if ! [ -e $DIFF_PDF_DOWNLOAD ]; then
-echo "-----> Fetching diff pdf binaries from $DIFF_PDF_URL"
-curl $DIFF_PDF_URL -L -s -o $DIFF_PDF_DOWNLOAD
-#fi
-
-echo "-----> Extracting diff pdf binaries from ${DIFF_PDF_DOWNLOAD} to ${DIFF_PDF_VENDOR}"
-tar -xf $DIFF_PDF_DOWNLOAD -C $DIFF_PDF_VENDOR
-cd $DIFF_PDF_VENDOR/diff-pdf-0.5
-./bootstrap
-./configure
-make
-make install
-#
-#echo "-----> Exporting PATH and LIBRARY_PATH"
-#echo 'export PATH="$PATH:vendor/diff-pdf/diff-pdf-0.5/bin"
-#export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:vendor/diff-pdf/diff-pdf-0.5/lib"' >> $DIFF_PDF_PROFILE/diff-pdf.sh
+exit 0
