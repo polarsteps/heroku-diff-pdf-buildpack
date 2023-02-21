@@ -16,7 +16,8 @@ dpkg -x aptfiles/diff-pdf.deb "$APT_DIR"
 # Setting environment variables in .profile.d script (sourced at dyno startup)
 mkdir -p "$BUILD_DIR/.profile.d/"
 cat <<EOF >"$BUILD_DIR"/.profile.d/diff-pdf.sh
-export LD_LIBRARY_PATH="\$LD_LIBRARY_PATH:\$HOME/bin"
+export LD_LIBRARY_PATH="\$LD_LIBRARY_PATH:/app/.apt/usr/lib/x86_64-linux-gnu"
+export PATH="\$PATH:/app/.apt/usr/local/bin"
 EOF
 
 exit 0
