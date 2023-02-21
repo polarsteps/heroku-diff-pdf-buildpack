@@ -1,4 +1,5 @@
+automake
+g++
 libpoppler-glib-dev
 poppler-utils
 libwxgtk3.0-gtk3-dev
-g++
