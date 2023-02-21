@@ -3,13 +3,15 @@
 # fail fast
 set -e
 BUILD_DIR=$1
-
+CACHE_DIR=$2
+APT_DIR="$BUILD_DIR/bin"
+mkdir -p "$APT_DIR"
 
 mkdir -p "$BUILD_DIR/bin/"
 cp -a binaries/* "$BUILD_DIR/bin/"
-dpkg -x aptfiles/libpoppler-glib-dev.deb
-dpkg -x aptfiles/libwxgtk3.0-gtk3-dev.deb
-dpkg -x aptfiles/poppler-utils.deb
+dpkg -x aptfiles/libpoppler-glib-dev.deb "$APT_DIR"
+dpkg -x aptfiles/libwxgtk3.0-gtk3-dev.deb "$APT_DIR"
+dpkg -x aptfiles/poppler-utils.deb "$APT_DIR"
 
 # Setting environment variables in .profile.d script (sourced at dyno startup)
 mkdir -p "$BUILD_DIR/.profile.d/"
