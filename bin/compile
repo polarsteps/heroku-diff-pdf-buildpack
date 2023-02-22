@@ -1,29 +1,4 @@
 #!/usr/bin/env bash
-
-# fail fast
-set -e
-BUILD_DIR=$1
-APT_DIR="$BUILD_DIR/.apt"
-mkdir -p "$APT_DIR"
-
-#mkdir -p "$BUILD_DIR/bin/"
-#cp -a binaries/* "$BUILD_DIR/bin/"
-dpkg -x aptfiles/libpoppler-glib-dev.deb "$APT_DIR"
-dpkg -x aptfiles/libwxgtk3.0-gtk3-dev.deb "$APT_DIR"
-dpkg -x aptfiles/poppler-utils.deb "$APT_DIR"
-dpkg -x aptfiles/diff-pdf.deb "$APT_DIR"
-
-# Setting environment variables in .profile.d script (sourced at dyno startup)
-mkdir -p "$BUILD_DIR/.profile.d/"
-cat <<EOF >"$BUILD_DIR"/.profile.d/diff-pdf.sh
-export LD_LIBRARY_PATH="\$LD_LIBRARY_PATH:/app/.apt/usr/lib/x86_64-linux-gnu"
-export PATH="\$PATH:/app/.apt/usr/local/bin:/app/bin"
-EOF
-
-exit 0
-
-
-#!/usr/bin/env bash
 # bin/compile <build-dir> <cache-dir>
 
 # fail fast
