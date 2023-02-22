@@ -36,9 +36,6 @@ case "${STACK}" in
   "heroku-22")
     # Package list from https://github.com/vslavik/diff-pdf
     PACKAGES="
-        make
-        automake
-        g++
         libpoppler-glib-dev
         libwxgtk3.0-gtk3-dev
         poppler-utils
