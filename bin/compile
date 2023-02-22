@@ -86,6 +86,10 @@ for DEB in $(ls -1 $APT_CACHE_DIR/archives/*.deb); do
   dpkg -x $DEB $BUILD_DIR/.apt/
 done
 
+rm -rf $BUILD_DIR/.apt/usr/share/icons
+rm -rf $BUILD_DIR/.apt/usr/share/doc
+rm -rf $BUILD_DIR/.apt/usr/share/include
+
 topic "Copying diff-pdf binary"
 cp -a binaries/diff-pdf "$BUILD_DIR/.apt/usr/bin/"
 
