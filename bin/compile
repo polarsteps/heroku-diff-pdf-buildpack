@@ -34,11 +34,16 @@ function indent() {
 # Install correct dependencies according to $STACK
 case "${STACK}" in
   "heroku-22")
-    # Package list from https://github.com/vslavik/diff-pdf
-    PACKAGES="
+    COMPILE_PACKAGES="
         libpoppler-glib-dev
         libwxgtk3.0-gtk3-dev
+    "
+    # Package list from https://github.com/vslavik/diff-pdf
+    PACKAGES="
         poppler-utils
+        libpoppler-glib8
+        libwxgtk3.0-gtk3
+        libsm6
     "
     ;;
   *)
