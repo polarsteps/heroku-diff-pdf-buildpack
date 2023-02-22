@@ -44,6 +44,7 @@ case "${STACK}" in
         libpoppler-glib8
         libwxgtk3.0-gtk3
         libsm6
+        libice6
     "
     ;;
   *)
