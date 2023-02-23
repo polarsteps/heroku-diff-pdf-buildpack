@@ -96,6 +96,7 @@ rm -rf $BUILD_DIR/.apt/usr/share/icons
 rm -rf $BUILD_DIR/.apt/usr/share/doc
 rm -rf $BUILD_DIR/.apt/usr/share/include
 rm -rf $BUILD_DIR/.apt/usr/lib/x86_64-linux-gnu/dri
+rm -rf $APT_CACHE_DIR/archives
 
 topic "Copying diff-pdf binary"
 cp -a binaries/diff-pdf "$BUILD_DIR/.apt/usr/bin/"
